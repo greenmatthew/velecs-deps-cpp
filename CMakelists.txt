@@ -1,6 +1,15 @@
 cmake_minimum_required(VERSION 3.16)
 project(velecs-deps)
 
+# Check if already loaded
+get_property(VELECS_DEPS_LOADED GLOBAL PROPERTY VELECS_DEPS_LOADED)
+if(VELECS_DEPS_LOADED)
+    return()
+endif()
+
+# Mark as loaded
+set_property(GLOBAL PROPERTY VELECS_DEPS_LOADED TRUE)
+
 ##############################################################################################
 ### SDL3 #####################################################################################
 ##############################################################################################
